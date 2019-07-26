@@ -1,0 +1,41 @@
+ <div class="Business">
+          <img src="img/shangwuhezuo@2x.png" alt="">
+          <a href="#">标题</a>
+      </div>
+      提交之后得
+     <div class="businessBg">
+        //弹框得透明背景（遮罩层）
+     </div>    
+        <div class="businessDialog">
+                <div class="dialogTitle">
+                       内容
+                </div>
+                 <div class="dialogContent">
+                        内容
+                 </div>
+             </div>
+ js部分获取dom，再对样式进行显示或者隐藏            
+     function $(str) {
+            return document.querySelector(str);
+        }
+        var business = $(".Business");
+        var businessInfo = $(".businessInfo");
+        var businessDialog = $(".businessDialog");
+		var btn = $(".Btn");
+        var businessBg=$(".businessBg")
+		
+    点击显示遮罩层以及弹框
+	 business.addEventListener("click",function(e){
+		 e.stopPropagation();
+     businessDialog.style.display="block";
+     businessBg.style.display="block";
+
+	 })
+   两秒之后遮罩层和弹框自动消失
+	 btn.addEventListener("click",function(e){
+		  setTimeout(()=>{
+			  businessDialog.style.display="none";
+         businessBg.style.display="none";
+		  },2000);
+	 })         
+     
